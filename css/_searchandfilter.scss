@@ -1,0 +1,46 @@
+.searchandfilter {
+	ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: nowrap;
+		gap:1.25em;
+	}
+	
+	li {
+		width:100%;
+		padding: 0;
+	}
+	
+	select, input {
+		font-size: var(--wp--preset--font-size--small);
+		width: 100%;
+		color: var(--wp--preset--color--base);
+	}
+	
+	select {
+	padding: 0.9em;
+    -webkit-appearance: none;
+    background-image: url(https://designonacid.com/wp-content/uploads/2024/07/keyboard_arrow_down_24dp_000000_FILL0_wght400_GRAD0_opsz24.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 95%;
+	border:0;
+	}
+	
+	input[type=submit] {
+	background-color: var(--wp--preset--color--contrast);
+    border-radius: 100px;
+    border-color: var(--wp--preset--color--contrast);
+    border-width: 0;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 500;
+    line-height: inherit;
+    padding-top: 0.6rem;
+    padding-right: 1rem;
+    padding-bottom: 0.6rem;
+    padding-left: 1rem;
+    text-decoration: none;
+	}
+}

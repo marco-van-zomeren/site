@@ -1,0 +1,150 @@
+:root {
+    --wp--style--global--content-size:1980px;
+    --wp--style--global--wide-size: 100%;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+:where(.wp-site-blocks *:focus) {
+  outline: none;
+}
+
+.has-global-padding {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+	.wp-block-columns .has-global-padding {
+       padding: 0 !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+		--wp--preset--color--base: #111111;
+        --wp--preset--color--base-2: #111111;
+        --wp--preset--color--contrast: #ffffff;
+		--wp--preset--color--contrast-2: hsl(220 5% 60% / 1);
+    }
+	header img, footer img {
+		filter: invert(1);
+	}
+}
+
+
+/* FULL WIDTH */
+.w-full {
+	width: 100%;
+}
+figure.w-full {
+	img {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	p.has-xx-large-font-size { 
+		font-size: 1.5rem !important;
+	}
+	.sm\:w-full {
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+}
+
+/* TOP */
+
+.top-4 {
+	top: 4em;
+}
+
+.top-5 {
+	top: 5em;
+}
+
+.top-7 {
+	top: 7em;
+}
+
+@media (max-width:768px){
+	.sm\:top-2 {
+		top:2em;
+	}
+}
+
+/* FONT SIZE */
+
+/* Older browsers */
+html { font-size: 16px; }
+
+/* Modern browsers only need this one */
+
+@media screen and (min-width: 25em){
+  html { font-size: calc( 16px + (24 - 16) * (100vw - 50vw) / (800 - 400) ); }
+}
+
+/* Safari <8 and IE <11 */
+@media screen and (min-width: 25em){
+  html { font-size: calc( 16px + (24 - 16) * (100vw - 50vw) / (800 - 400) ); }
+}
+@media screen and (min-width: 50em){
+
+html { font-size: calc( 16px + (24 - 16) * (100vw - 75vw) / (800 - 400) ); }
+}
+
+/* VIDEO */
+iframe {
+	width: 100%;
+	height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+/* UNDERLINE */
+nav a {
+	text-decoration: none!important;
+}
+
+/* LINKS / BUTTONS */
+.entry-content p a, .taxonomy-category a {
+	display: inline-block;
+    position: relative;
+	text-decoration: none!important;
+	&:hover {
+		color: var(--wp--preset--color--contrast)!important;
+		transition: all 0.3s;
+	}
+	&::before {
+	  content: '';
+	  position: absolute;
+	  width: 100%;
+	  border-radius: 5px;
+	  height: 0.05em;
+	  bottom: 0;
+	  left: 0;
+	  background: var(--wp--preset--color--contrast);
+	  opacity: 0.2;
+	  transform-origin: bottom right;
+	  transition: transform 0.25s ease-out;
+	}
+	&::after {
+	  content: '';
+	  position: absolute;
+	  width: 100%;
+	  transform: scaleX(0);
+	  border-radius: 5px;
+	  height: 0.05em;
+	  bottom: 0;
+	  left: 0;
+	  background: currentcolor;
+	  transform-origin: bottom right;
+	  transition: transform 0.25s ease-out;
+	}
+	&:hover::after {
+	  transform: scaleX(1);
+	  transform-origin: bottom left;
+	}
+}
+
+.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color, .has-background) {
+	transition: all 0.3s;
+}

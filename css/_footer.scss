@@ -1,0 +1,25 @@
+footer {
+  a {
+    text-decoration: none !important;
+
+    &:hover {
+	  color: var(--wp--preset--color--contrast)!important;
+      text-decoration: underline;
+	  transition: all 0.3s;
+    }
+  }
+}
+
+.manage-consent-1 {
+    position: relative !important;
+    float: right;
+    bottom: 0 !important;
+	left: 0 !important;
+    width: 100% !important;
+	padding: 1.5rem !important;
+    background: var(--wp--preset--color--base) !important;
+    color: white !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    text-align: left !important;
+    font-family: Inter!important;
+}

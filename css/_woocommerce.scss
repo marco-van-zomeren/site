@@ -1,0 +1,81 @@
+.woocommerce {
+	.button {
+		border-radius: 100px;
+	}
+	select {
+		color: var(--wp--preset--color--contrast)!important;
+	}
+	.wc-block-catalog-sorting select.orderby {
+		padding: 1em;
+		-webkit-appearance: none;
+		background-image:url("https://designonacid.com/wp-content/uploads/2024/07/keyboard_arrow_down_24dp_000000_FILL0_wght400_GRAD0_opsz24.png");
+		background-size: 20px;
+		background-repeat: no-repeat;
+		background-position: 95%;
+	}
+	
+	/* SINGLE PRODUCT */
+	@media only screen and (min-width: 768px) {
+		.wp-block-woocommerce-product-image-gallery {
+			max-width: 50vw !important;
+		}
+		
+		.wp-block-column.is-layout-flow.wp-block-column-is-layout-flow {
+		  flex-basis: 50% !important;
+		}
+	}
+
+	.product .alignwide.is-layout-flex {
+		gap: 5rem;
+	}
+
+}
+
+.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wc-block-components-product-image img[alt=""], .wc-block-components-product-image img[alt=""] {
+    border: none;
+}
+
+	/* CARDS */
+	ul.wc-block-grid__products {
+    gap: 5rem;
+	margin: 0;
+	}
+	
+	li.wc-block-grid__product.wc-block-layout {
+    flex: 1!important;
+	}
+	
+	.wc-block-components-product-image.wc-block-grid__product-image {
+    width: 100%;
+		img {
+			width: 100%
+		}
+	}
+
+.woocommerce-cart, .woocommerce-checkout {
+		input {
+			max-height: inherit!important;
+		}	
+}	
+	
+
+
+.wc-block-grid__products a:where(:not(.wp-element-button)) {
+	text-decoration: none;
+}
+
+button.wc-block-components-address-form__address_2-toggle,
+button.wc-block-components-totals-shipping__change-address__link {
+	color: var(--wp--preset--color--contrast)!important;
+}
+
+
+@media only screen and (max-width: 768px) {
+	.wc-block-product-template__responsive {
+		display: flex;
+    	flex-wrap: wrap;
+		li {
+			width: 100%;
+		}
+	}
+}
