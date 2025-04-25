@@ -21,4 +21,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Directory containing the file(s)
           server-dir: /wp-content/uploads/css/
-          passive: true  # Enable passive mode
+          timeout: 600  # Adjust the timeout duration (in seconds) if needed
