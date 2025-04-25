@@ -1,4 +1,4 @@
-name: Deploy via FTP
+name: Deploy CSS via SFTP
 
 on:
   push:
@@ -6,18 +6,18 @@ on:
       - 'custom.css'
 
 jobs:
-  ftp-deploy:
+  sftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy via FTP
-        uses: appleboy/ftp-deploy-action@v0.1.8
+      - name: Upload via SFTP
+        uses: appleboy/sftp-action@v0.1.8  # Ensure you are using the latest version
         with:
-          host: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          source: './custom.css'
-          target: '/wp-content/uploads/css/'
+          host: ${{ secrets.FTP_HOST }}  # Your SFTP server host
+          username: ${{ secrets.FTP_USERNAME }}  # Your SFTP username
+          password: ${{ secrets.FTP_PASSWORD }}  # Your SFTP password
+          source: './custom.css'  # Path to the CSS file in your repo
+          target: '/wp-content/uploads/css/'  # Path on the server where the file will go
