@@ -1,0 +1,24 @@
+name: Deploy CSS via FTP
+
+on:
+  push:
+    paths:
+      - 'custom.css'
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy CSS to FTP server
+        uses: SamKirkland/FTP-Deploy-Action@v5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./custom.css
+          server-dir: /wp-content/uploads/css/
+          debug: true  # Enables debug logging for better error tracking
