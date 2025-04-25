@@ -5,7 +5,7 @@
 
 body {
   overflow-x: hidden;
-  background: orange;
+  background: red;
 }
 
 :where(.wp-site-blocks *:focus) {

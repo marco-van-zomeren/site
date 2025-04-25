@@ -1,23 +1,8 @@
-name: Deploy CSS via FTP
-
-on:
-  push:
-    paths:
-      - 'custom.css'  # This will trigger the workflow only for changes to custom.css
-
-jobs:
-  ftp-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Deploy CSS to FTP server
-        uses: SamKirkland/FTP-Deploy-Action@v5  # Using the latest version
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./custom.css  # Points to the specific CSS file in the root directory
-          server-dir: /wp-content/uploads/css/
+- name: Deploy CSS to FTP server
+  uses: diegosernadev/ftp-deploy-action@v1
+  with:
+    ftp-server: ${{ secrets.FTP_HOST }}
+    ftp-username: ${{ secrets.FTP_USERNAME }}
+    ftp-password: ${{ secrets.FTP_PASSWORD }}
+    local-dir: ./custom.css
+    server-dir: /wp-content/uploads/css/
