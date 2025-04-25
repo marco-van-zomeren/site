@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy CSS to FTP server
-        uses: diegosernadev/ftp-deploy-action@v2  # Using latest stable version (v2)
+        uses: 'https://github.com/SamKirkland/FTP-Deploy-Action'  # Direct GitHub URL to action
         with:
-          ftp-server: ${{ secrets.FTP_HOST }}  # This will use fs-erytho.easywp.com
-          ftp-username: ${{ secrets.FTP_USERNAME }}  # Set in your GitHub Secrets
-          ftp-password: ${{ secrets.FTP_PASSWORD }}  # Set in your GitHub Secrets
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./custom.css
           server-dir: /wp-content/uploads/css/
