@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy CSS to FTP server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4  # Use v4.3.4 or another working version
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4  # Use a working version
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./custom.css
+          local-dir: ./  # Point to the directory where custom.css is located (use './' for root)
           server-dir: /wp-content/uploads/css/
