@@ -1,4 +1,4 @@
-name: Deploy CSS via SFTP
+name: Deploy via FTP
 
 on:
   push:
@@ -6,15 +6,15 @@ on:
       - 'custom.css'
 
 jobs:
-  sftp-deploy:
+  ftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Upload files via SFTP
-        uses: mikeal/ftp-deploy@v1.2.0
+      - name: Deploy via FTP
+        uses: appleboy/ftp-deploy-action@v0.1.8
         with:
           host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
