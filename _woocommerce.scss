@@ -2,13 +2,12 @@
 	.button {
 		border-radius: 100px;
 	}
-	select {
-		color: var(--wp--preset--color--contrast)!important;
-	}
-	.wc-block-catalog-sorting select.orderby {
+	
+	select, .wc-block-catalog-sorting select.orderby {
 		padding: 1em;
 		-webkit-appearance: none;
 		background-image:url("https://designonacid.com/wp-content/uploads/2024/07/keyboard_arrow_down_24dp_000000_FILL0_wght400_GRAD0_opsz24.png");
+		background-color: white;
 		background-size: 20px;
 		background-repeat: no-repeat;
 		background-position: 95%;

@@ -2,7 +2,7 @@
     "name": "your-project-name",
     "version": "1.0.0",
     "scripts": {
-        "sass": "sass --watch wp-content/uploads/css/custom.scss:wp-content/uploads/css/custom.css"
+        "sass": "sass --watch custom.scss:custom.css"
     },
     "devDependencies": {
         "sass": "^1.87.0"
