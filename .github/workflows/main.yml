@@ -1,4 +1,4 @@
-name: Deploy CSS via FTP
+name: Deploy CSS via SFTP
 
 on:
   push:
@@ -6,19 +6,18 @@ on:
       - 'custom.css'
 
 jobs:
-  ftp-deploy:
+  sftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy CSS to FTP server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Upload files via SFTP
+        uses: appleboy/sftp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_HOST }}
+          host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./  # Directory containing the file(s)
-          server-dir: /wp-content/uploads/css/
-          timeout: 600  # Adjust the timeout duration (in seconds) if needed
+          source: './custom.css'
+          target: '/wp-content/uploads/css/'
