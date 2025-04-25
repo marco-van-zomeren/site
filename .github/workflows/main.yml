@@ -1,23 +1,18 @@
-name: Deploy CSS via SFTP
-
-on:
-  push:
-    paths:
-      - 'custom.css'
-
 jobs:
   sftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Upload via SFTP
-        uses: appleboy/sftp-action@v0.1.8  # Ensure you are using the latest version
+      - name: Upload files to server using SFTP
+        uses: appleboy/sftp-action@v0.1.7
         with:
-          host: ${{ secrets.FTP_HOST }}  # Your SFTP server host
-          username: ${{ secrets.FTP_USERNAME }}  # Your SFTP username
-          password: ${{ secrets.FTP_PASSWORD }}  # Your SFTP password
-          source: './custom.css'  # Path to the CSS file in your repo
-          target: '/wp-content/uploads/css/'  # Path on the server where the file will go
+          host: ${{ secrets.SFTP_HOST }}           # The SFTP server address (e.g., fs-erytho.easywp.com)
+          username: ${{ secrets.SFTP_USERNAME }}   # Your SFTP username
+          password: ${{ secrets.SFTP_PASSWORD }}   # Your SFTP password
+          port: 22                                # Default SFTP port, can be changed if necessary
+          local-dir: ./                  # Local directory to upload
+          server-dir:  '/wp-content/uploads/css/'  # Path on the server where the file will go
+          timeout: 60s                            # Timeout for the connection
