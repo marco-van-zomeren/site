@@ -1,3 +1,10 @@
+name: SFTP Deployment
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   sftp-deploy:
     runs-on: ubuntu-latest
@@ -13,6 +20,6 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}   # Your SFTP username
           password: ${{ secrets.SFTP_PASSWORD }}   # Your SFTP password
           port: 22                                # Default SFTP port, can be changed if necessary
-          local-dir: ./                  # Local directory to upload
-          server-dir:  '/wp-content/uploads/css/'  # Path on the server where the file will go
+          local-dir: ./                      # Local directory to upload
+          server-dir: /wp-content/uploads/css/    # Remote directory to upload to
           timeout: 60s                            # Timeout for the connection
